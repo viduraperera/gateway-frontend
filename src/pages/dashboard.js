@@ -1,30 +1,27 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchAllItemsData, fetchSingleItemData } from "../store/reducers/gateway";
+import React from "react";
+import { Button, Grid } from "@material-ui/core";
+import AllGateways from "../components/gateway/all-gateways";
+import AllDevices from "../components/device/all-devices";
 
 const Dashboard = () => {
-
-  const dispatch = useDispatch();
-  const items = useSelector((state) => state.items);
-
-  useEffect(() => {
-    dispatch(fetchAllItemsData());
-  }, [dispatch]);
-
-  console.log(items);
   return (
     <div>
-      <div>
-        <input type="text" placeholder="Serial Number"/>
-        <input type="text" placeholder="Name"/>
-        <input type="text" placeholder="IPV4 Address"/>
-        <button>Add Gateway</button>
-      </div>
-      {/* <div>
-        {gatewayList.map((gateway) => {
-          return <h1>{gateway.name}</h1>
-        })}
-      </div> */}
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={6}>
+          <AllGateways />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <AllDevices />
+        </Grid>
+        <Grid item xs={12} container justify="space-between">
+          <Button variant="contained" color="primary">
+            Left Button
+          </Button>
+          <Button variant="contained" color="secondary">
+            Right Button
+          </Button>
+        </Grid>
+      </Grid>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { readAllGateway, readGateway } from "../index";
+import { readAllGateway, readGateway, readAllDevices, readDevice } from "../index";
 
 const GatewaySlice = createSlice({
   name: "gateways",
@@ -23,3 +23,6 @@ export const fetchAllItemsData = () => async (dispatch) => {
   };
 
   export default GatewaySlice.reducer;
+
+  
+
