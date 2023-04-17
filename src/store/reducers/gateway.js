@@ -39,14 +39,24 @@ export const fetchAllGatewayData = () => async (dispatch) => {
   dispatch(setGateways(data));
 };
 
-export const fetchSingleGatewayData = (itemId) => async (dispatch) => {
-  const data = await readGateway(itemId);
+export const fetchSingleGatewayData = (gatewayId) => async (dispatch) => {
+  const data = await readGateway(gatewayId);
   dispatch(setSingleGateway(data));
 };
 
 export const createGatewayData = (data) => async (dispatch) => {
   const newGateway = await createGateway(data);
   dispatch(setAddGateway(newGateway));
+};
+
+export const updateGatewayData = (data) => async (dispatch) => {
+  const updatedItem = await updateGateway(data);
+  dispatch(setUpdateGateway(updatedItem));
+};
+
+export const deleteGatewayData = (gatewayId) => async (dispatch) => {
+  await deleteGateway(gatewayId);
+  dispatch(setDeleteGateway({ id: gatewayId }));
 };
 
 export default GatewaySlice.reducer;
