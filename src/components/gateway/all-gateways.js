@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAllItemsData } from "../../store/reducers/gateway";
+import { fetchAllGatewayData } from "../../store/reducers/gateway";
 
 export default function AllGateways() {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.gateway?.data?.data);
 
   useEffect(() => {
-    dispatch(fetchAllItemsData());
+    dispatch(fetchAllGatewayData());
   }, [dispatch]);
 
   return (
