@@ -26,13 +26,13 @@ export default function HeaderBar() {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            Gateway Management Portal
-          </Typography>
+            Gateway Portal Manager
+          </Typography> 
           <Button color="inherit">
-            <Link to="/">Gateway </Link>
+            <Link to="/" style={{ textDecoration: 'none', color: 'white'}}>Gateway </Link>
           </Button>
           <Button color="inherit">
-            <Link to="/devices">Devices </Link>
+            <Link to="/devices" style={{ textDecoration: 'none', color: 'white'}}>Devices </Link>
           </Button>
         </Toolbar>
       </AppBar>

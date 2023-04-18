@@ -3,24 +3,27 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { configureStore } from "@reduxjs/toolkit";
-import { Provider } from "react-redux";
-import gatewayReducer from './store/reducers/gateway';
-import deviceReducer from './store/reducers/devices';
+import { ToastContainer } from "react-toastify";
+import { ThemeProvider } from "@material-ui/core";
+import theme from "./styles/theme";
+import 'react-toastify/dist/ReactToastify.css';
 
-const store = configureStore ({
-  reducer: {
-    gateway: gatewayReducer,
-    device : deviceReducer,
-  }
-})
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>
+  <ThemeProvider theme={theme}>
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>
+    <ToastContainer
+      position="top-right"
+      autoClose={4000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      draggable={false}
+      closeOnClick
+      pauseOnHover
+    />
+  </ThemeProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

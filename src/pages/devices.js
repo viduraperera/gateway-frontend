@@ -1,20 +1,25 @@
-import { Button, Grid } from "@material-ui/core";
-import React from "react";
-import AllDevices from "../components/device/all-devices";
+import React, { useState } from "react";
+import ModalPopup from "../components/common/modal";
+import CreateDevice from "../components/device/create-device";
+import { MESSAGE_CONSTANT } from "../constants/constants";
+import DevicesCards from "../components/device/all-devices";
 
 export default function Devices() {
+  const [openDevicesModal, setOpenDevicesModal] = useState(false);
+  const handleClose = () => setOpenDevicesModal(false);
   return (
     <div>
-      <Grid container spacing={2}>
-        <Grid item xs={12} sm={6}>
-          <AllDevices />
-        </Grid>
-        <Grid item xs={12} container justifyContent="space-between">
-          <Button variant="contained" color="primary">
-            Left Button
-          </Button>
-        </Grid>
-      </Grid>
+      <DevicesCards
+        openDevicesAddModal={openDevicesModal}
+        setDevicesOpenAddModal={setOpenDevicesModal}
+      />
+      <ModalPopup
+        open={openDevicesModal}
+        onClose={handleClose}
+        title={MESSAGE_CONSTANT.CREATE_NEW_DEVICE}
+      >
+        <CreateDevice />
+      </ModalPopup>
     </div>
   );
 }
