@@ -1,0 +1,17 @@
+.container {
+    /* height: 100vh;
+    width: 100vw;
+    position: relative; */
+  }
+  
+  .bottom-right {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100px;
+    height: 20vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
